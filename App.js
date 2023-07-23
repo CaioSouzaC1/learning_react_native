@@ -6,6 +6,7 @@ import {
   Montserrat_700Bold,
 } from "@expo-google-fonts/montserrat";
 import { View } from "react-native";
+import AppLoading from "expo-app-loading";
 export default function App() {
   const [fontsLoaded] = useFonts({
     Regular: Montserrat_400Regular,
@@ -13,11 +14,11 @@ export default function App() {
   });
 
   if (!fontsLoaded) {
-    return <View></View>;
+    return <AppLoading></AppLoading>;
   }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1 }}>
       <StatusBar />
       <Cesta />
     </SafeAreaView>

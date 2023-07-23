@@ -1,4 +1,4 @@
-import { StyleSheet, Image, View, Text } from "react-native";
+import { StyleSheet, Image, View, Text, TouchableOpacity } from "react-native";
 import Farm from "../../../../assets/logo.png";
 import TextBold from "../TextBold";
 import cesta from "../../../mocks/cesta";
@@ -12,6 +12,9 @@ const FarmDetails = () => {
       </View>
       <Text style={styles.h4}>{cesta.description}</Text>
       <TextBold style={styles.h3}>{cesta.price}</TextBold>
+      <TouchableOpacity style={styles.btn} color="#2a9f85">
+        <TextBold style={styles.btnText}> Comprar</TextBold>
+      </TouchableOpacity>
     </>
   );
 };
@@ -41,6 +44,20 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
     paddingVertical: 12,
+  },
+  btn: {
+    backgroundColor: "#2a9f85",
+    borderRadius: 4,
+    padding: 12,
+    marginTop: 16,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  btnText: {
+    color: "#FFF",
+    fontSize: 16,
+    lineHeight: 26,
+    textTransform: "uppercase",
   },
 });
 
