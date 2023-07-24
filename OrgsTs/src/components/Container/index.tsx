@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { TextStyle, View } from "react-native";
 
 interface ContainerI {
   children: React.ReactNode;
