@@ -4,8 +4,13 @@ import {Image, StyleSheet, Text, View} from 'react-native';
 import Logo from '../../assets/logo.png';
 import {LoadTop} from '../../Services/LoadMocks';
 
+interface TopMockI {
+  name: String;
+  subtitle: String;
+}
+
 const Top = (): React.JSX.Element => {
-  const [TopMock, setTopMock] = useState(false);
+  const [TopMock, setTopMock] = useState<TopMockI>({name: '', subtitle: ''});
 
   useEffect(() => {
     setTopMock(LoadTop());
@@ -13,7 +18,7 @@ const Top = (): React.JSX.Element => {
 
   return (
     <>
-      {TopMock && (
+      {TopMock.name && TopMock.subtitle && (
         <View style={styles.top}>
           <Image style={styles.logo} source={Logo} />
           <Text style={styles.name}>{TopMock.name}</Text>

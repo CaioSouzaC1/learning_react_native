@@ -4,7 +4,7 @@ import Home from './src/pages/Home';
 
 function App(): React.JSX.Element {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{flex: 1}}>
       <Home />
     </SafeAreaView>
   );
