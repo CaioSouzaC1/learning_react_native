@@ -3,8 +3,11 @@ import React, {
   ImageSourcePropType,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from 'react-native';
+import Stars from '../Stars';
+import {useReducer, useState} from 'react';
 
 interface ProductorItemI {
   name: string;
@@ -14,9 +17,13 @@ interface ProductorItemI {
 }
 
 const ProductorItem = (props: ProductorItemI) => {
+  const [selected, invertSelected] = useReducer(selected => !selected, false);
   return (
     <>
-      <View style={styles.card}>
+      <TouchableOpacity
+        onPress={() => invertSelected(selected)}
+        style={styles.card}
+        disabled={false}>
         <Image
           style={styles.logo}
           accessibilityLabell={props.name}
@@ -24,9 +31,10 @@ const ProductorItem = (props: ProductorItemI) => {
         />
         <View style={styles.info}>
           <Text style={styles.name}>{props.name}</Text>
+          <Stars editable={selected} big={selected} stars={props.stars} />
         </View>
         <Text style={styles.ml}>{props.ml}</Text>
-      </View>
+      </TouchableOpacity>
     </>
   );
 };
@@ -72,7 +80,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   ml: {
-    fontSize: 8,
+    fontSize: 10,
     marginRight: 16,
   },
 });
