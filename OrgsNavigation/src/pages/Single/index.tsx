@@ -5,24 +5,30 @@ import TopImage from '../../assets/other/topo.png';
 import list from '../../mocks/list.js';
 import {FlatList} from 'react-native';
 import ListItem from '../../components/ListItem';
+import {useRoute} from '@react-navigation/native';
 
-const ListItens = () => {
+const ListItens = props => {
   return (
     <>
       <Top image={TopImage} />
-      <FarmDetails {...list.detalhes}></FarmDetails>
+      <FarmDetails {...props.data}></FarmDetails>
     </>
   );
 };
 
 const Single = () => {
+  const route = useRoute();
+  let params = route.params;
+
+  console.log(params);
+
   return (
     <>
       <FlatList
         data={list.itens.lista}
         renderItem={item => <ListItem {...item} />}
         keyExtractor={item => item.nome}
-        ListHeaderComponent={<ListItens />}
+        ListHeaderComponent={<ListItens {...params} />}
       />
     </>
   );

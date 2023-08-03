@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
+import {SafeAreaView, StatusBar} from 'react-native';
 import AppRoutes from './src/routes/App';
 
 export default function App() {

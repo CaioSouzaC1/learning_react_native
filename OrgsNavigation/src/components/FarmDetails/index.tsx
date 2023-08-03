@@ -8,28 +8,32 @@ import {
 import TextBold from '../TextBold';
 import TextRegular from '../TextRegular';
 import Container from '../Container';
+import {useNavigation} from '@react-navigation/native';
+import React from 'react';
 
 interface FarmDetailsI {
   nome: String;
-  nomeFazenda: String;
   preco: String;
   descricao: String;
-  botao: String;
-  logoFazenda: ImageSourcePropType;
+  image: ImageSourcePropType;
 }
 
 const FarmDetails = (props: FarmDetailsI) => {
+  const navigation = useNavigation();
   return (
     <Container>
-      <TextBold style={styles.h1}> {props.nome}</TextBold>
+      <TextBold style={styles.h1}>{props.nome}</TextBold>
       <View style={styles.row}>
-        <Image style={styles.logo} source={props.logoFazenda}></Image>
-        <TextRegular style={styles.h2}>{props.nomeFazenda}</TextRegular>
+        <Image style={styles.logo} source={props.image}></Image>
       </View>
       <TextRegular style={styles.h4}>{props.descricao}</TextRegular>
       <TextBold style={styles.h3}> {props.preco}</TextBold>
-      <TouchableOpacity style={styles.btn}>
-        <TextBold style={styles.btnText}>{props.botao}</TextBold>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('ProductorRoutes');
+        }}
+        style={styles.btn}>
+        <TextBold style={styles.btnText}>Comprar {props.nome}</TextBold>
       </TouchableOpacity>
     </Container>
   );

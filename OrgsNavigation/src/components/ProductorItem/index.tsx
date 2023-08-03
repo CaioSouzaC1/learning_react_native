@@ -7,21 +7,31 @@ import React, {
   View,
 } from 'react-native';
 import Stars from '../Stars';
-import {useReducer, useState} from 'react';
+import {useState} from 'react';
+import {useNavigation} from '@react-navigation/native';
 
 interface ProductorItemI {
   name: string;
-  img?: String | ImageSourcePropType;
-  ml?: string;
-  stars?: number;
+  img: String | ImageSourcePropType;
+  ml: string;
+  stars: number;
 }
 
 const ProductorItem = (props: ProductorItemI) => {
-  const [selected, invertSelected] = useReducer(selected => !selected, false);
+  const [selected, invertSelected] = useState(false);
+  const navigation = useNavigation();
+
   return (
     <>
       <TouchableOpacity
-        onPress={() => invertSelected(selected)}
+        onPress={() =>
+          navigation.navigate('productor', {
+            name: props.name,
+            stars: props.stars,
+            img: props.img,
+            ml: props.ml,
+          })
+        }
         style={styles.card}
         disabled={false}>
         <Image

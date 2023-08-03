@@ -37,12 +37,6 @@ const Clients = {
       ml: '1900m',
       stars: 5,
     },
-    {
-      name: 'Second Salad',
-      img: Salad,
-      ml: '190m',
-      stars: 5,
-    },
   ],
 };
 
