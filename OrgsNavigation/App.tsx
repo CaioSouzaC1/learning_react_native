@@ -1,23 +1,12 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import {SafeAreaView, StatusBar} from 'react-native';
-import Home from './src/pages/Home';
-import Single from './src/pages/Single';
+import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
+import AppRoutes from './src/routes/App';
 
-function App(): JSX.Element {
+export default function App() {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{flex: 1}}>
       <StatusBar />
-      <Home />
-      {/* <Single /> */}
+      <AppRoutes />
     </SafeAreaView>
   );
 }
-
-export default App;
