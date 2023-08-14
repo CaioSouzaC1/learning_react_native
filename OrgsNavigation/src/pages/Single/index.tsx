@@ -20,8 +20,6 @@ const Single = () => {
   const route = useRoute();
   let params = route.params;
 
-  console.log(params);
-
   return (
     <>
       <FlatList

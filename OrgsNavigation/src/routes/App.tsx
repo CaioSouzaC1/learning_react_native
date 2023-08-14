@@ -8,7 +8,12 @@ const Tab = createBottomTabNavigator();
 const AppRoutes = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={{
+          headerShown: false,
+          tabBarActiveTintColor: '#2A9F85',
+          tabBarInactiveTintColor: '#C4C4C4',
+        }}>
         <Tab.Screen name="ProductorRoutes" component={ProductorRoutes} />
         <Tab.Screen name="single" component={Single} />
       </Tab.Navigator>
